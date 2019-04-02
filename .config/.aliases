@@ -1,0 +1,42 @@
+# Shortcuts
+alias dl="cd ~/Downloads"
+alias g="git"
+alias h="history"
+alias k="kubectl"
+
+# Easier navigation: .., ..., ...., ....., ~ and -
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~" # `cd` is probably faster to type though
+alias -- -="cd -"
+
+# Listing files
+alias l="ls -FG"
+alias la='ls -AlhFG'
+alias ll='ls -lhFG'
+
+# Listing directories
+alias lsd="ls -lhFG | grep --color=never '^d'"
+
+# Always use color output for `ls`
+alias ls="command ls -G"
+
+# Always enable colored `grep` output
+alias grep='grep --color=auto '
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# IP addresses
+alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\\.){3}[0-9]*' | grep -Eo '([0-9]*\\.){3}[0-9]*' | grep -v '127.0.0.1'"
+alias ips="sudo ifconfig -a | grep -o 'inet6\\? \\(addr:\\)\\?\\s\\?\\(\\(\\([0-9]\\+\\.\\)\\{3\\}[0-9]\\+\\)\\|[a-fA-F0-9:]\\+\\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
+# Python3 by default
+alias python="python3"
+alias pip="pip3"

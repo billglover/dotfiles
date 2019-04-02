@@ -4,7 +4,7 @@ GPG_TTY=$(tty)
 export GPG_TTY
 
 # include other configuration files
-for file in ~/.{bash_prompt,aliases,path,exports,functions}; do
+for file in ~/.config/.{bash_prompt,aliases,path,exports,functions}; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
 		source "$file"
 	fi
