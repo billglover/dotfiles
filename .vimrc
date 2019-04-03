@@ -22,6 +22,8 @@ endif
 
 syntax on
 color dracula
+set background=dark
+set t_Co=16
 
 filetype plugin indent on
 
