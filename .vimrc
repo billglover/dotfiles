@@ -68,7 +68,7 @@ set re=1
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-set colorcolumn=80
+"set colorcolumn=80
 
 " indenting
 set autoindent
