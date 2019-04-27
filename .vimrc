@@ -25,7 +25,7 @@ let g:dracula_italic = 0
 let g:dracula_colorterm = 0
 color dracula
 set background=dark
-set termguicolors
+"set termguicolors
 let g:airline_theme='dracula'
 set cursorline
 
