@@ -49,3 +49,5 @@ brew "coreutils"
 brew "certbot"
 brew "awscli"
 brew 'docker-compose'
+brew 'bash'
+brew 'bash-completion'
