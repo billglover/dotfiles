@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 system_type=$(uname -s)
 
@@ -35,7 +35,11 @@ if command -v vim >/dev/null 2>&1; then
 fi
 
 # configure zsh and prezto
-git clone --recursive https://github.com/sorin-ionescu/prezto.git ${HOME}/.config/zsh/.zprezto
+git clone --recursive https://github.com/sorin-ionescu/prezto.git ${HOME}/.zprezto
 zsh ${HOME}/.yadm/bin/prezto.zsh || true
 $SUDO chsh -s $(which zsh) $(whoami) >/dev/null 2>&1
 
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
