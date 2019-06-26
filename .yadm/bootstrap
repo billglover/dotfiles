@@ -2,6 +2,10 @@
 
 system_type=$(uname -s)
 
+if [ "$(id -u)" != "0" ] && command -v sudo; then
+    SUDO=sudo
+fi
+
 if [ "$system_type" = "Darwin" ]; then
 
   # install homebrew if it's missing
@@ -29,3 +33,9 @@ if command -v vim >/dev/null 2>&1; then
   echo "Bootstraping Vim"
   vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
 fi
+
+# configure zsh and prezto
+git clone --recursive https://github.com/sorin-ionescu/prezto.git ${HOME}/.config/zsh/.zprezto
+zsh ${HOME}/.yadm/bin/prezto.zsh || true
+$SUDO chsh -s $(which zsh) $(whoami) >/dev/null 2>&1
+
