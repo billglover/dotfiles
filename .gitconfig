@@ -1,0 +1,13 @@
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[user]
+	name = Bill Glover
+	email = bill@billglover.co.uk
+	signingkey = 845F3ED60173678F
+[includeIf "gitdir:bglover/"]
+    path = ~/.gitconfig-pivotal
+[push]
+	default = current
