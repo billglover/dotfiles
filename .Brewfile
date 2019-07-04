@@ -19,6 +19,7 @@ brew "docker-compose"
 brew "docker-machine", link: false
 brew "fzf"
 brew "git"
+brew "hub"
 brew "pinentry"
 brew "gnupg", link: false
 brew "go"
