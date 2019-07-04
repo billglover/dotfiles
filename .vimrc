@@ -153,3 +153,7 @@ autocmd FileType go nmap <Leader>i <Plug>(go-info)
 let g:go_auto_type_info = 1
 set updatetime=100
 let g:go_auto_sameids = 1
+
+" Spell check and line wrap for git commit messages
+autocmd Filetype gitcommit setlocal spell textwidth=72
+

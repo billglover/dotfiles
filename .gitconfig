@@ -11,3 +11,5 @@
     path = ~/.gitconfig-pivotal
 [push]
 	default = current
+[commit]
+	template = /Users/bill/.gitmessage
