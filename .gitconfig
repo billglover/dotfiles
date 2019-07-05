@@ -12,4 +12,4 @@
 [push]
 	default = current
 [commit]
-	template = /Users/bill/.gitmessage
+	template = ~/.gitmessage
