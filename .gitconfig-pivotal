@@ -1,2 +1,4 @@
+[core]
+	hooksPath = /Users/bglover/dev/git-hooks-core
 [user]
     email = bglover@pivotal.io
