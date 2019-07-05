@@ -157,3 +157,6 @@ let g:go_auto_sameids = 1
 " Spell check and line wrap for git commit messages
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
+" clipboard
+set clipboard=unnamed
+

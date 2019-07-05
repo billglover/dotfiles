@@ -14,16 +14,16 @@ if [ "$system_type" = "Darwin" ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 
-  if [ -f "$HOME/.Brewfile" ]; then
+  if [ -f "${ZDOTDIR:-$HOME}/.Brewfile" ]; then
     echo "Updating homebrew bundle"
     brew bundle --global
     brew bundle cleanup --global --force
   fi
 
   # update the iTerm2 preference directory
-  if [ -d "$HOME/.iterm2" ]; then
+  if [ -d "${ZDOTDIR:-$HOME}/.iterm2" ]; then
     echo "Setting iTerm preference folder"
-    defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.iterm2"
+    defaults write com.googlecode.iterm2 PrefsCustomFolder "${ZDOTDIR:-$HOME}/.iterm2"
   fi
 
 fi
@@ -35,11 +35,11 @@ if command -v vim >/dev/null 2>&1; then
 fi
 
 # configure zsh and prezto
-git clone --recursive https://github.com/sorin-ionescu/prezto.git ${HOME}/.zprezto
-zsh ${HOME}/.yadm/bin/prezto.zsh || true
-$SUDO chsh -s $(which zsh) $(whoami) >/dev/null 2>&1
+git clone --recursive https://github.com/sorin-ionescu/prezto.git ${ZDOTDIR:-$HOME}/.zprezto
 
 setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
+
+$SUDO chsh -s $(which zsh) $(whoami) >/dev/null 2>&1
