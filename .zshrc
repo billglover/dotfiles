@@ -19,3 +19,7 @@ alias mux="tmuxinator"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/bglover/.sdkman"
 [[ -s "/Users/bglover/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/bglover/.sdkman/bin/sdkman-init.sh"
+
+# Aliases
+alias cf=cf7
+alias k=kubectl
