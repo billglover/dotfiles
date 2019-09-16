@@ -1,0 +1,20 @@
+### LASTPASS + FZF
+# copy password from selected entry to clipboard
+
+op get account > /dev/null 2> /dev/null
+
+if [ $? -ne 0 ]; then
+  token=$(op signin my --output=raw)
+  local auth=$?
+fi
+
+if [ $auth -eq 0 ]; then
+  export OP_SESSION_my="$token"
+  local selected=$(op list items | jq '.[] | select(.templateUuid=="001") | "\(.overview.title)\t\(.overview.ainfo)\t\(.uuid)"' --raw-output | sort -t$'\t' -k1 | column -t -s$'\t' | fzf --with-nth=1,2 --nth=1 --delimiter=$'[[:space:]][[:space:]]+')
+
+  if [[ $selected ]]; then
+    local item=$(echo $selected | awk -F '[[:space:]][[:space:]]+' '{print $3}')
+    op get item $item | jq '.details.fields[] | select(.designation == "password") | .value' --raw-output | pbcopy
+  fi
+
+fi
