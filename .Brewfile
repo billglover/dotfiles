@@ -1,5 +1,5 @@
-tap "caskroom/cask"
-tap "caskroom/fonts"
+tap "homebrew/cask-cask"
+tap "homebrew/cask-fonts"
 tap "cloudfoundry/tap"
 tap "golangci/tap"
 tap "homebrew/bundle"
