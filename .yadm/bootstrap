@@ -20,12 +20,6 @@ if [ "$system_type" = "Darwin" ]; then
     brew bundle cleanup --global --force
   fi
 
-  # update the iTerm2 preference directory
-  if [ -d "${ZDOTDIR:-$HOME}/.iterm2" ]; then
-    echo "Setting iTerm preference folder"
-    defaults write com.googlecode.iterm2 PrefsCustomFolder "${ZDOTDIR:-$HOME}/.iterm2"
-  fi
-
 fi
 
 # bootstrap vim using vim-plug
@@ -41,5 +35,3 @@ setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
-
-$SUDO chsh -s $(which zsh) $(whoami) >/dev/null 2>&1
